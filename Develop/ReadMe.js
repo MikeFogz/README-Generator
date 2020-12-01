@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-// const fs = require("fs");
+const fs = require("fs");
 // const util = require("util");
 // const writeFileAsync = util.promisify(fs.writeFile);
 // const promptUser = () =>
@@ -94,5 +94,9 @@ Go the extra mile and write tests for your application. Then provide examples on
 
 You can find me on GitHub [here](https://github.com/${appGitHub})
 
-I can be contacted at ${appEmail}
-`}
+I can be contacted at ${appEmail}`    
+    fs.writeFile("READMETest.md", md, (err) => {
+        if (err) throw err;
+        console.log("Complete")
+        })
+}
