@@ -18,7 +18,7 @@ inquirer.prompt([
     {type: "input", name: "appCredits", message: "Please list any Collaborators, 3rd Party assets, or tutorials used.",},
     {type: "input", name: "appTest", message: "How can one start and test your app?",},
     // License List
-    {type: "list", name: "appLicense", message: "What License are you using?", choices: ['MIT', 'Apache', 'GPL', 'Other']},
+    {type: "list", name: "appLicense", message: "What License are you using?", choices: ['MIT', 'Apache', 'GPL', 'None']},
     //Added to Test Section 
     {type: "input", name: "appGitHub", message: "Please enter your GitHub Username.",},
     //Added to Questions Section
@@ -29,74 +29,73 @@ inquirer.prompt([
 .then((res) => {
     console.log(res)
     console.log("Success")
+    const generateREADME = (answers) => {
+    `# ${answers.appTitle}
+
+    ## Description 
+
+    ${answers.appDescription}
+
+
+    ## Table of Contents
+
+
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [Credits](#credits)
+    * [License](#license)
+    * [Contributing](#contributing)
+    * [Tests](#tests)
+    * [Questions](#questions)
+
+
+    ## Installation
+
+    ${answers.appInstall}
+
+    ## Usage 
+
+    ${answers.appUsage}
+    rovide instructions and examples for use. Include screenshots as needed. 
+
+    ## Contributing
+
+    ${answers.appContrib}
+
+    The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
+
+    ## Credits
+
+    List of contirbutors I used on this project: 
+
+    ${answers.appCredits}
+
+    Third Party Assets
+
+    Tutorials
+
+
+    ## License
+    //how to add a dynamic badge//
+
+    ![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+
+    ${answers.appLicense}
+
+    If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
+
+    ## Tests
+
+    Go the extra mile and write tests for your application. Then provide examples on how to run them.
+
+    ## Questions
+
+    You can find me on GitHub [here](https://github.com/${appGitHub})
+
+    I can be contacted at ${appEmail}`    
+        fs.writeFile("READMETest.md", generateREADME, (err) => {
+            if (err) throw err;
+            console.log("Complete")
+            })
+    }
 });
-
-const generateREADME = (answers) => {
-`# ${answers.appTitle}
-
-## Description 
-
-${answers.appDescription}
-
-
-## Table of Contents
-
-
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [Questions](#questions)
-
-
-## Installation
-
-${answers.appInstall}
-
-## Usage 
-
-${answers.appUsage}
-rovide instructions and examples for use. Include screenshots as needed. 
-
-## Contributing
-
-${answers.appContrib}
-
-The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
-
-## Credits
-
-List of contirbutors I used on this project: 
-
-${answers.appCredits}
-
-Third Party Assets
-
-Tutorials
-
-
-## License
-//how to add a dynamic badge//
-
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
-
-${answers.appLicense}
-
-If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
-
-## Questions
-
-You can find me on GitHub [here](https://github.com/${appGitHub})
-
-I can be contacted at ${appEmail}`    
-    fs.writeFile("READMETest.md", md, (err) => {
-        if (err) throw err;
-        console.log("Complete")
-        })
-}
