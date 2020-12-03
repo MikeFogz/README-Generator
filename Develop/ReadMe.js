@@ -19,9 +19,9 @@ inquirer.prompt([
     {type: "input", name: "appTest", message: "How can one start and test your app?",},
     // License List
     {type: "list", name: "appLicense", message: "What License are you using?", choices: ['MIT', 'Apache', 'GPL', 'None']},
-    //Added to Test Section 
-    {type: "input", name: "appGitHub", message: "Please enter your GitHub Username.",},
     //Added to Questions Section
+    {type: "input", name: "appGitHub", message: "Please enter your GitHub Username.",},
+    
     {type: "input", name: "appEmail", message: "Please enter the email address you would like to be reached at.",},
     //If needed, input for adding additional details to Question Section.
     // {type: "input", name: "appQuestions", message: "",},
@@ -54,9 +54,9 @@ inquirer.prompt([
     ${answers.appInstall}
 
     ## Usage 
-
+    Here are instructions on how to use this app. 
     ${answers.appUsage}
-    rovide instructions and examples for use. Include screenshots as needed. 
+    ![Screenshot of App](${answers.appPic1}) Include screenshots as needed. 
 
     ## Contributing
 
@@ -66,17 +66,12 @@ inquirer.prompt([
 
     ## Credits
 
-    List of contirbutors I used on this project: 
+    List of contirbutors I worked with and tools/tutorials used on this project: 
 
     ${answers.appCredits}
 
-    Third Party Assets
-
-    Tutorials
-
-
     ## License
-    //how to add a dynamic badge//
+    //how to add a dynamic badge? No Need?//
 
     ![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
 
@@ -86,13 +81,14 @@ inquirer.prompt([
 
     ## Tests
 
-    Go the extra mile and write tests for your application. Then provide examples on how to run them.
+    ${answers.appTest}
 
     ## Questions
 
     You can find me on GitHub [here](https://github.com/${appGitHub})
 
-    I can be contacted at ${appEmail}`    
+    I can be contacted at ${appEmail}`  
+
         fs.writeFile("READMETest.md", generateREADME, (err) => {
             if (err) throw err;
             console.log("Complete")
