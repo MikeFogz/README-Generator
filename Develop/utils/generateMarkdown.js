@@ -1,9 +1,9 @@
 // function to generate markdown for README
-function licenseSection(license){
-  if (license !== "None"){
-    return(`This License is ${answers.appLicense}`)
-  }
-}
+// function licenseSection(license){
+//   if (license !== "None"){
+//     return(`This License is ${answers.appLicense}`)
+//   }
+// }
 
 
 function generateMarkdown(data) {
@@ -35,7 +35,12 @@ function generateMarkdown(data) {
   ## Usage 
   Here are instructions on how to use this app. 
   ${data.appUsage}
-  ![Screenshot of App](${data.appPic1}) Include screenshots as needed. 
+  
+  Screenshot 1:
+  ![Screenshot of App](${data.appPic1})
+  Screenshot 2:
+  ![Screenshot of App](${data.appPic2})
+
 
   ## Contributing
 

@@ -9,11 +9,11 @@ inquirer.prompt([
     {type: "input", name: "appDescript", message: "Please enter a Description of your app.",},
     {type: "input", name: "appInstall", message: "Please provide Installation Instructions.",},
     {type: "input", name: "appUsage", message: "Please provide Usage Information.",},
-    //Thinking about including screenshot. Wondering how best to give option of mulitple pics
+    //Screenshot
     {type: "input", name: "appPic1", message: "Please provide file path to screenshot of app.",},
+    {type: "input", name: "appPic2", message: "If you have another screenshot or gif enter the file path now.",},
     {type: "input", name: "appContrib", message: "What are your Guidelines for Contributors?",},
-    //Credits - Wondering if I should have a seperate entry to create linked github user names for any collaborators
-    // Such as appCollab, appThird, appTutorials
+    //Credits -Future update:Include entry to create linked github user names for any collaborators as well as breaking down to further subsections of credits: Such as appCollab, appThird, appTutorials
     {type: "input", name: "appCredits", message: "Please list any Collaborators, 3rd Party assets, or tutorials used.",},
     {type: "input", name: "appTest", message: "How can one start and test your app?",},
     // License List
@@ -22,8 +22,7 @@ inquirer.prompt([
     {type: "input", name: "appGitHub", message: "Please enter your GitHub Username.",},
     
     {type: "input", name: "appEmail", message: "Please enter the email address you would like to be reached at.",},
-    //If needed, input for adding additional details to Question Section.
-    // {type: "input", name: "appQuestions", message: "",},
+
 ])
 .then((res) => {
     console.log(res)

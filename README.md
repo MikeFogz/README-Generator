@@ -41,6 +41,7 @@ List of contirbutors I worked with and tools/tutorials used on this project:
 ## License
 
 MIT
+
 MIT License
 
 Copyright (c) [2020] [Mike Fogarty]
