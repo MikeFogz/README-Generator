@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown")
 
 inquirer.prompt([
     //Title of Project/App
@@ -26,70 +27,9 @@ inquirer.prompt([
 ])
 .then((res) => {
     console.log(res)
-    console.log("Success")
 
-    const generateREADME = (answers) => {
-    `# ${answers.appTitle}
-
-    ## Description 
-
-    ${answers.appDescription}
-
-
-    ## Table of Contents
-
-
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [Credits](#credits)
-    * [License](#license)
-    * [Contributing](#contributing)
-    * [Tests](#tests)
-    * [Questions](#questions)
-
-
-    ## Installation
-
-    ${answers.appInstall}
-
-    ## Usage 
-    Here are instructions on how to use this app. 
-    ${answers.appUsage}
-    ![Screenshot of App](${answers.appPic1}) Include screenshots as needed. 
-
-    ## Contributing
-
-    ${answers.appContrib}
-
-
-    ## Credits
-
-    List of contirbutors I worked with and tools/tutorials used on this project: 
-
-    ${answers.appCredits}
-
-    ## License
-
-    ${answers.appLicense}
-
-    If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
-
-    ## Tests
-
-    ${answers.appTest}
-
-    ## Questions
-
-    You can find me on GitHub [here](https://github.com/${appGitHub})
-
-    I can be contacted at ${appEmail}
-    `  
-
-        fs.writeFile('READMETest.md', generateREADME, (err) => {
-            if (err) throw err;
-            console.log("Complete")
-            })
-    }
-});
-
-// generateREADME();
+    fs.writeFile('README.md', generateMarkdown(res), (err) => {
+        if (err) throw err;
+        console.log("Complete")
+        })
+    })
