@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-// const util = require("util");
-// const writeFileAsync = util.promisify(fs.writeFile);
-// const promptUser = () =>
+
 inquirer.prompt([
     //Title of Project/App
     {type: "input", name: "appTitle", message: "Name of your Application",},
@@ -29,6 +27,7 @@ inquirer.prompt([
 .then((res) => {
     console.log(res)
     console.log("Success")
+
     const generateREADME = (answers) => {
     `# ${answers.appTitle}
 
@@ -62,7 +61,6 @@ inquirer.prompt([
 
     ${answers.appContrib}
 
-    The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
 
     ## Credits
 
@@ -71,9 +69,6 @@ inquirer.prompt([
     ${answers.appCredits}
 
     ## License
-    //how to add a dynamic badge? No Need?//
-
-    ![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
 
     ${answers.appLicense}
 
@@ -87,11 +82,14 @@ inquirer.prompt([
 
     You can find me on GitHub [here](https://github.com/${appGitHub})
 
-    I can be contacted at ${appEmail}`  
+    I can be contacted at ${appEmail}
+    `  
 
-        fs.writeFile("READMETest.md", generateREADME, (err) => {
+        fs.writeFile('READMETest.md', generateREADME, (err) => {
             if (err) throw err;
             console.log("Complete")
             })
     }
 });
+
+// generateREADME();
